@@ -25,10 +25,26 @@ function checkInputs() {
     if (emailValue === "") {
         setErrorFor(email, "O email é obrigatório.");
     } else if (!checkEmail(emailValue)) {
-        setErrorFor(email, "Por favor insira um email válido.")
+        setErrorFor(email, "Por favor insira um email válido.");
     }
     else {
         setSuccessFor(email);
+    }
+
+    if (passwordValue === "") {
+        setErrorFor(password, "A senha é obrigatória.");
+    } else if (passwordValue.length < 7) {
+        setErrorFor(password, "A senha precisa ter no mínimo 7 caracteres.");
+    } else {
+        setSuccessFor(password);
+    }
+
+    if (passwordConfirmationValue === "") {
+        setErrorFor(passwordConfirmation, "A confirmação de senha é obrigatória.");
+    } else if (passwordConfirmationValue != passwordValue) {
+        setErrorFor(passwordConfirmation, "As senhas não são iguais.");
+    } else {
+        setSuccessFor(passwordConfirmation);
     }
 }
 
