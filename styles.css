@@ -55,7 +55,7 @@ body {
 
 .form-control i {
     position: absolute;
-    top: 45px;
+    top: 55px;
     right: 10px;
     visibility: hidden;
 }
@@ -80,4 +80,28 @@ button {
     transform: translateX(-50%);
     margin-bottom: 10px;
     width: 50%;
+}
+
+/* Error and Success */
+.form-control.success input {
+    border-color: #2ecc71;
+}
+
+.form-control.error input {
+    border-color: #e74c3c;
+}
+
+.form-control.success i.fa-check-circle {
+    color: #2ecc71;
+    visibility: visible;
+}
+
+.form-control.error i.fa-exclamation-circle {
+    color: #e74c3c;
+    visibility: visible;
+}
+
+.form-control.error small {
+    visibility: visible;
+    color: #e74c3c;
 }
