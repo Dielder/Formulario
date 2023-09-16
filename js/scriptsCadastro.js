@@ -54,7 +54,18 @@ function checkInputs() {
     });
 
     if (formIsValid) {
-        console.log("O formulário está 100% válido!");
+        let listaUser = JSON.parse(localStorage.getItem("listaUser") || "[]");
+
+        listaUser.push({
+            nome: username.value,
+            email: email.value,
+            senha: password.value
+
+        });
+
+        localStorage.setItem("listaUser", JSON.stringify(listaUser));
+
+        window.location.href = "/html/indexLogin.html";
     }
 }
 
