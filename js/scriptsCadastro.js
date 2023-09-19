@@ -57,9 +57,9 @@ function checkInputs() {
         let listaUser = JSON.parse(localStorage.getItem("listaUser") || "[]");
 
         listaUser.push({
-            nome: username.value,
-            email: email.value,
-            senha: password.value
+            nome: usernameValue,
+            email: emailValue,
+            senha: passwordValue
 
         });
 

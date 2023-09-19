@@ -26,31 +26,38 @@ function checkInputs() {
         setSuccessFor(password);
     }
 
-    const formControls = form.querySelectorAll(".form-control");
+    // Recuperar dados do localStorage
+    let listaUser = JSON.parse(localStorage.getItem("listaUser")) || [];
 
-    const formIsValid = [...formControls].every(formControl => {
-        return (formControl.className === "form-control success");
-    });
+    // Verificar credenciais
+    let userEncontrado = listaUser.find(user => user.nome === usernameValue && user.senha === passwordValue);
 
-    if (formIsValid) {
-        console.log("O formulário está 100% válido!");
+    if (userEncontrado) {
+        console.log("Credenciais válidas! O usuário está autenticado.");
+    } else if (username !== usernameValue) {
+        setErrorFor(username, "Usuário inválido.");
     }
-}
+    else if (password !== passwordValue) {
+        setErrorFor(password, "Senha inválida.");
+    }
 
-function setErrorFor(input, message) {
-    const formControl = input.parentElement;
-    const small = formControl.querySelector("small");
 
-    // Adiciona a mensagem de erro
-    small.innerText = message;
 
-    // Adiciona a classe de erro
-    formControl.className = "form-control error";
-}
+    function setErrorFor(input, message) {
+        const formControl = input.parentElement;
+        const small = formControl.querySelector("small");
 
-function setSuccessFor(input) {
-    const formControl = input.parentElement;
+        // Adiciona a mensagem de erro
+        small.innerText = message;
 
-    // Adicionar a classe de sucesso
-    formControl.className = "form-control success";
+        // Adiciona a classe de erro
+        formControl.className = "form-control error";
+    }
+
+    function setSuccessFor(input) {
+        const formControl = input.parentElement;
+
+        // Adicionar a classe de sucesso
+        formControl.className = "form-control success";
+    }
 }
