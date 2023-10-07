@@ -34,6 +34,7 @@ function checkInputs() {
 
     if (userEncontrado) {
         console.log("Credenciais válidas! O usuário está autenticado.");
+        window.location.href = "../html/index.html";
     } else if (username !== usernameValue) {
         setErrorFor(username, "Usuário inválido.");
     }
