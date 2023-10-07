@@ -65,7 +65,7 @@ function checkInputs() {
 
         localStorage.setItem("listaUser", JSON.stringify(listaUser));
 
-        window.location.href = "/assets/html/indexLogin.html";
+        window.location.href = "../html/indexLogin.html";
     }
 }
 
